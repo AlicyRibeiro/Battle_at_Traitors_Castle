@@ -1,6 +1,6 @@
 # Battle at Traitor's Castle (Versão Assembly)
 
-Este repositório é uma recriação moderna em Assembly (x86-64, Linux) do jogo "Battle at Traitor's Castle". O jogo original foi publicado em 1982 no livro **Computer Battlegames** da Usborne Publishing.
+Este repositório é uma **releitura** moderna em Assembly (x86-64, Linux) do jogo "Battle at Traitor's Castle". O jogo original foi publicado em 1982 no livro **Computer Battlegames** da Usborne Publishing.
 
 Este projeto é baseado no jogo da página 14 do livro, que foi originalmente escrito em BASIC para microcomputadores como o ZX Spectrum e BBC Micro.
 
