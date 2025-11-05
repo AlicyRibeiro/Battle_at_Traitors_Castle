@@ -1,0 +1,91 @@
+"O Rei está travando uma batalha feroz e sangrenta contra seu inimigo mais mortal - o Barão Traidor. Você é um dos arqueiros de elite do Rei e, neste exato momento, está agachado atrás dos arbustos do lado de fora do Castelo do Barão, atirando em seus homens enquanto eles levantam a cabeça acima das ameias.
+
+Seu computador imprimirá uma fileira contendo oito pontos e um O. As teclas numéricas de 1 a 9 correspondem à posição do O na fileira. Você tem pouco tempo para pressionar a tecla correta e acertar o O, antes que ele desapareça.
+
+Quantos homens do Barão você consegue acertar?"
+
+	
+	Battle at Traitor’s Castle — Explicação
+
+Você é um arqueiro de elite do rei, escondido nos arbustos em frente ao castelo do Barão Traidor. O seu objetivo é acertar os soldados do Barão quando eles aparecem acima das muralhas.
+
+Como jogar:
+    O objetivo é acertar o maior número possível de homens do Barão.
+    A cada rodada, o computador imprime uma linha com 8 pontos (.) e um alvo (O) em uma posição aleatória entre 1 e 9.
+    Você precisa pressionar rapidamente a tecla do número correspondente à posição do O para acertar.
+    Você tem 10 chances (ou rodadas).
+    Se você pressionar a tecla correta a tempo, o computador mostra “GOOD SHOT”.
+    Se errar ou for lento demais, aparece “MISSED”.
+    
+    
+Como o jogo funciona internamente:
+    Inicialização: A pontuação do jogador (S) é definida como zero no início do jogo (linha 20).
+    Loop Principal: O jogo consiste em 10 tentativas (loop iniciado na linha 30).
+    Geração do Alvo:
+
+    Uma "string" vazia (R<span class="math-inline">) é preparada (linha 40).
+    	 Um número aleatório entre 1 e 9 é selecionado e armazenado em T; este número representa a posição do alvo "O" (linha 50).
+    	 O programa então constrói a fileira visual: ele percorre 9 posições (linhas 60-90). Se a posição atual do loop (L) for igual à posição do alvo (T), um "O" é adicionado à string R\$; caso contrário, um "." é adicionado.
+    	 **Exibição e Entrada:** * A fileira com o alvo (R\$) é impressa na tela (linha 100). 
+    	 Um loop de tempo limitado é iniciado (linha 110) para verificar se o jogador pressiona uma tecla. O programa verifica a tecla pressionada (INKEY\) (linha 120).
+    
+
+Verificação e Pontuação:
+    Se a tecla numérica pressionada pelo jogador (convertida para valor numérico, VAL) corresponder à posição do alvo (T), o programa pula para a linha 170 (linha 130).
+    Na linha 170, a mensagem "GOOD SHOT" é exibida, e a pontuação (S) é incrementada em 1 (linha 180).
+    Se o jogador errar a tecla ou não pressionar a tempo, a mensagem "MISSED" é impressa (linha 150), e o programa pula para a linha 190.
+
+
+Próxima Tentativa: A linha 190 (NEXT G) envia o computador de volta à linha 30 para a próxima tentativa.
+
+Fim de Jogo: Após 10 tentativas, a pontuação final ("YOU HIT [S] OUT OF 10") é impressa (linha 200).
+
+
+
+Dica para modificar:
+No canto de curiosidades (puzzle corner), a revista sugere que você pode alterar o jogo para incluir dois tipos de alvos:
+    O (soldado comum) vale 1 ponto.
+    S (soldado especial) vale 5 pontos.
+    
+    
+Caixa Azul (Making the game faster or slower):
+"Tornando o jogo mais rápido ou mais lento"
+"Você pode achar que o computador funciona muito rápido ou muito devagar para você neste jogo. Você pode ajustar isso alterando o último número na linha 110. Um número menor tornará o jogo mais rápido." 
+
+Caixa Amarela (Puzzle corner):
+"Canto do Quebra-cabeça"
+"Você consegue mudar o programa para que você tenha dois tipos de alvo - ou O (um dos soldados Comuns do Barão) que vale 1 ponto, ou S (um de seus ramos Especiais) que vale 5 pontos?" 
+
+How the program works
+Como o programa funciona
+
+    Sets your score to zero for start of game.
+        Define sua pontuação como zero para o início do jogo.
+    Beginning of loop which gives you 10 goes.
+        Início do loop que lhe dá 10 tentativas.
+    Sets up an empty string, R$.
+        Cria uma string (sequência de caracteres) vazia, R$.
+    Selects a number between 1 and 9 and puts it in T.
+        Seleciona um número entre 1 e 9 e o coloca em T.
+    Loops round 9 times, adding a character to the string, R$, each time. The character is O for the position corresponding to the number in T and a dot for all the others.
+        Faz um loop 9 vezes, adicionando um caractere à string, R$, a cada vez. O caractere é O para a posição correspondente ao número em T e um ponto para todas as outras.
+    Prints the string.
+        Imprime a string.
+    Loops round a number of times to see if you are pressing a key. (End of loop at line 140)
+        Faz um loop várias vezes para ver se você está pressionando uma tecla. (Fim do loop na linha 140)
+    Checks if you are pressing the right key. Jumps to 170 if so.
+        Verifica se você está pressionando a tecla correta. Pula para 170 se estiver.
+    Prints if you pressed the wrong key or didn’t press in time, then jumps to 190.
+        Imprime se você pressionou a tecla errada ou não pressionou a tempo, então pula para 190.
+    Increases your score by 1.
+        Aumenta sua pontuação em 1.
+    Sends computer back to line 30 for another go.
+        Envia o computador de volta para a linha 30 para outra tentativa.
+    Prints your score when 10 goes are up.
+        Imprime sua pontuação quando as 10 tentativas acabarem.
+        
+        
+Compilar e rodar:
+nasm -f elf64 castle.asm -o castle.o
+ld castle.o -o castle
+./castle
