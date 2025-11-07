@@ -59,11 +59,11 @@ ld castle.o -o castle
 * **Makefile**: Automatiza o processo de compilação.
 * **README.md**: Este arquivo.
 
-## 👨‍💻 Desenvolvedor
+##  Desenvolvedor
 
 Esta versão em Assembly (x86-64, Linux) foi desenvolvida por **[Ana Alicy Ribeiro & Kaylane Castro]**.
 
-* **GitHub:** `[@AlicyRibeiro](https://github.com/AlicyRibeiro)`
+* **GitHub:** `@AlicyRibeiro(https://github.com/AlicyRibeiro)`
 * **Livro:** *Computer Battlegames*
 * **Autores:** Daniel Isaaman e Jenny Tyler
 * **Publicação:** Usborne Publishing Ltd, 1982
