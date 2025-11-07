@@ -27,7 +27,7 @@ Este projeto foi desenvolvido para Linux e utiliza `nasm` e `ld`.
 Basta clonar o repositório e executar `make`:
 
 ```bash
-git clone [https://github.com/seu-usuario/Battle-at-Traitor-s-Castle.git](https://github.com/seu-usuario/Battle-at-Traitor-s-Castle.git)
+git clone [https://github.com/AlicyRibeiro/Battle-at-Traitor-s-Castle.git](https://github.com/AlicyRibeiro/Battle-at-Traitor-s-Castle.git)
 cd Battle-at-Traitor-s-Castle
 make
 ./castle
