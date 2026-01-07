@@ -1,30 +1,74 @@
-# Battle at Traitor's Castle (Versão Assembly)
+#  Battle at Traitor's Castle (Versão Assembly)
 
-Este repositório é uma **releitura** moderna em Assembly (x86-64, Linux) do jogo "Battle at Traitor's Castle". O jogo original foi publicado em 1982 no livro **Computer Battlegames** da Usborne Publishing.
+Este repositório apresenta uma **releitura moderna em Assembly (x86-64, Linux)** do jogo clássico **"Battle at Traitor's Castle"**, originalmente publicado em **1982** no livro  
+**_Computer Battlegames_**, da **Usborne Publishing**.
 
-Este projeto é baseado no jogo da página 14 do livro, que foi originalmente escrito em BASIC para microcomputadores como o ZX Spectrum e BBC Micro.
+O jogo original foi escrito em **BASIC** para microcomputadores da época, como o **ZX Spectrum** e o **BBC Micro**.  
+Esta implementação busca preservar a **lógica e a mecânica original**, adaptando-as para um ambiente moderno em **Linux**, utilizando **Assembly x86-64**.
 
-## Sobre o Jogo
+---
 
-Você é um dos arqueiros de elite do Rei, agachado atrás dos arbustos fora do Castelo do Barão Traidor. Seu objetivo é acertar os soldados do Barão quando eles aparecem acima das muralhas.
+##  Contexto Histórico
 
-### Como Jogar (Esta Versão)
+- **Livro:** *Computer Battlegames*  
+- **Autores:** Daniel Isaaman e Jenny Tyler  
+- **Editora:** Usborne Publishing Ltd  
+- **Ano:** 1982  
+
+Este projeto é inspirado especificamente no jogo apresentado na **página 14** do livro, incluindo adaptações sugeridas na seção *Puzzle Corner*.
+
+---
+
+##  Sobre o Jogo
+
+Você é um dos arqueiros de elite do Rei, escondido atrás dos arbustos fora do **Castelo do Barão Traidor**.  
+Seu objetivo é acertar os soldados inimigos quando eles aparecem brevemente sobre as muralhas do castelo.
+
+O desafio exige **atenção, rapidez e precisão**, já que o tempo para reagir é limitado.
+
+---
+
+##  Como Jogar (Nesta Versão)
+
+- O jogo exibe uma linha com **9 posições**, por exemplo:
+
 
 * O computador exibirá uma linha com 9 posições (`.......O.` ou `S........`).
-* Você deve digitar o número (1-9) correspondente à posição do alvo.
-* Você tem **3 segundos** para acertar.
-* **Tipos de Alvo:** (Baseado na sugestão "Puzzle corner" do livro original)
-    * `O` = Soldado Comum (Vale 1 ponto)
-    * `S` = Soldado Especial (Vale 5 pontos)
-* O jogo termina após 10 rodadas ou se você digitar `q` para sair.
+- Cada posição representa um possível local onde o inimigo pode aparecer.
+- Você deve digitar um número de **1 a 9**, correspondente à posição do alvo.
+- Você tem **3 segundos** para responder.
+- O jogo dura **10 rodadas** ou pode ser encerrado a qualquer momento digitando `q`.
 
-##  Como Compilar e Rodar
+### Tipos de Alvo
 
-Este projeto foi desenvolvido para Linux e utiliza `nasm` e `ld`.
+| Símbolo | Descrição             | Pontuação |
+|--------|------------------------|-----------|
+| `O`    | Soldado comum          | 1 ponto   |
+| `S`    | Soldado especial       | 5 pontos  |
 
-### 1. Usando Make (Recomendado)
+---
 
-Basta clonar o repositório e executar `make`:
+## Como Compilar e Executar
+
+Este projeto foi desenvolvido para **Linux** e utiliza:
+
+- **NASM** (Netwide Assembler)
+- **LD** (GNU Linker)
+
+### 🔹 Opção 1: Usando Make (Recomendado)
+
+```bash
+git clone https://github.com/AlicyRibeiro/Battle-at-Traitor-s-Castle.git
+cd Battle-at-Traitor-s-Castle
+make
+./castle
+````
+
+#### Comandos disponíveis no `Makefile`:
+
+- `make` — Compila o projeto
+- `make run` — Compila e executa o jogo
+- `make clean` — Remove arquivos gerados (`castle` e `castle.c`)
 
 ```bash
 git clone [https://github.com/AlicyRibeiro/Battle-at-Traitor-s-Castle.git](https://github.com/AlicyRibeiro/Battle-at-Traitor-s-Castle.git)
@@ -53,12 +97,23 @@ ld castle.o -o castle
 
 ##  Estrutura do Repositório
 
-* **/src**: Contém o código-fonte principal em Assembly (`castle.asm`).
-* **/docs**: Contém a análise do código BASIC original (`analise_jogo_original.txt`).
-* **/reference_material**:
-* **Makefile**: Automatiza o processo de compilação.
-* **README.md**: Este arquivo.
-
+```bash
+Battle-at-Traitor-s-Castle/
+│
+├── src/
+│   └── castle.asm        # Código-fonte principal em Assembly
+│
+├── docs/
+│   └── analise_jogo_original.txt  # Análise do jogo BASIC original
+│
+├── reference_material/
+│   ├── Computer Battlegames (Usborne Publishing).pdf
+│   └── panfleto.png
+│
+├── Makefile              # Automação da compilação
+├── README.md             # Este arquivo
+└── LICENSE
+`````
 ##  Desenvolvedor
 
 Esta versão em Assembly (x86-64, Linux) foi desenvolvida por **Ana Alicy Ribeiro & Kaylane Castro**.
@@ -67,3 +122,9 @@ Esta versão em Assembly (x86-64, Linux) foi desenvolvida por **Ana Alicy Ribeir
 * **Livro:** *Computer Battlegames*
 * **Autores:** Daniel Isaaman e Jenny Tyler
 * **Publicação:** Usborne Publishing Ltd, 1982
+
+
+## Licença e Créditos
+
+Este projeto é uma adaptação educacional, sem fins comerciais, baseada em um jogo publicado originalmente pela Usborne Publishing.
+Todos os direitos sobre o jogo original pertencem aos seus respectivos autores.
